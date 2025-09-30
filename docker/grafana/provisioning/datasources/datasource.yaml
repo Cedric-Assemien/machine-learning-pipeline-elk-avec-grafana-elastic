@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - name: Elasticsearch-Cantine
+    uid: es-cantine
+    type: elasticsearch
+    access: proxy
+    url: http://elasticsearch:9200
+    isDefault: true
+    jsonData:
+      timeField: "@timestamp"
+      esVersion: 7
+      interval: "Daily"
+      logMessageField: "message"
+      logLevelField: "level"
+      maxConcurrentShardRequests: 5
+      index: "cantine_data"
+    editable: true

@@ -1,0 +1,54 @@
+{
+  "id": null,
+  "uid": "cantine-main",
+  "title": "Cantine - Vue d'ensemble",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "piechart",
+      "title": "Recommandation (Oui/Non)",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+      "datasource": { "type": "elasticsearch", "uid": "es-cantine" },
+      "options": { "legend": { "showLegend": true } },
+      "targets": [
+        {
+          "query": "",
+          "bucketAggs": [
+            {
+              "type": "terms",
+              "field": "recommande",
+              "id": "1",
+              "settings": { "size": 5 }
+            }
+          ],
+          "metrics": [{ "id": "1", "type": "count" }],
+          "timeField": "@timestamp",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "type": "xychart",
+      "title": "Calories vs Satisfaction",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+      "datasource": { "type": "elasticsearch", "uid": "es-cantine" },
+      "targets": [
+        {
+          "query": "",
+          "metrics": [{ "id": "1", "type": "raw_document" }],
+          "bucketAggs": [],
+          "timeField": "@timestamp",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "xField": "calories",
+        "yField": "satisfaction",
+        "series": { "colorBy": "type_repas" }
+      }
+    }
+  ]
+}

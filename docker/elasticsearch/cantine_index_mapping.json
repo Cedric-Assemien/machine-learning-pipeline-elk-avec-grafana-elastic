@@ -1,0 +1,18 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "age": { "type": "integer" },
+      "classe": { "type": "keyword" },
+      "type_repas": { "type": "keyword" },
+      "calories": { "type": "float" },
+      "cout_repas": { "type": "float" },
+      "freq_consommation": { "type": "integer" },
+      "satisfaction": { "type": "integer" },
+      "recommande": { "type": "boolean" }
+    }
+  }
+}
