@@ -101,7 +101,7 @@ docker compose up -d
 
 ```powershell
 # Créer l’index cantine_data avec mapping adapté
-Invoke-WebRequest -Uri http://localhost:9200/cantine_data -Method Put -ContentType 'application/json' -InFile '.\docker\elasticsearch\cantine_index_mapping.json'
+Invoke-WebRequest -Uri http://localhost:9s200/cantine_data -Method Put -ContentType 'application/json' -InFile '.\docker\elasticsearch\cantine_index_mapping.json'
 ```
 
 Champs clés du mapping:
@@ -172,7 +172,7 @@ POST cantine_data/_search
 ```
 
 Interprétation rapide:
-
+ 
 - Si `végétarien` > `standard` en satisfaction moyenne, renforcer l’offre végétarienne.
 - Si certaines classes ont un coût moyen plus élevé, ajuster le budget/menus pour l’équité.
 
